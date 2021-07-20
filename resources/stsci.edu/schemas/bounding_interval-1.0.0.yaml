@@ -1,0 +1,35 @@
+#YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/bounding_interval-1.1.0"
+tag: "tag:stsci.edu:asdf/transform/bounding_interval-1.1.0"
+title: Bounding Interval
+
+description: |
+  Represents the interval that an input is bound to.
+
+type: object
+properties:
+  input:
+    type: integer
+    description: |
+      The index of the input for this bounding interval
+
+  lower:
+    anyOf:
+      - type: number
+      - $ref: "../core/ndarray-1.0.0"
+      - $ref: "../unit/quantity-1.1.0"
+    description: |
+      The lower bound for the input value
+
+  upper:
+    anyOf:
+      - type: number
+      - $ref: "../core/ndarray-1.0.0"
+      - $ref: "../unit/quantity-1.1.0"
+    description: |
+      The upper bound for the input value
+required: [input, lower, upper]
+additionalProperties: False
+...

@@ -1,0 +1,45 @@
+
+#YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/compound_bounding_box-1.1.0"
+tag: "tag:stsci.edu:asdf/transform/compound_bounding_box-1.1.0"
+title: Compound Bounding Box
+
+description: |
+  Represents a compound bounding box for a model
+
+type: object
+properties:
+  bounding_boxes:
+    type: array
+    items:
+      $ref: "bounding_box-1.0.0"
+    description: |
+      A list of bounding_boxes for the model
+
+  slice_arguments:
+    type: object
+    properties:
+      slices:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: integer
+              description: |
+                The index of an input to use for slicing
+            ignored:
+              type: boolean
+              description: |
+                If this slice input should be ignored by the bounding box
+
+  order:
+    type: string
+    description: |
+      The ordering describing the interval representation
+
+required: [bounding_boxes, slice_arguments, order]
+additionalProperties: False
+...

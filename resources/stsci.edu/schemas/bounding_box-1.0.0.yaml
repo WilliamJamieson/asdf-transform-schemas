@@ -1,0 +1,34 @@
+#YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://stsci.edu/schemas/asdf/transform/bounding_box-1.1.0"
+tag: "tag:stsci.edu:asdf/transform/bounding_box-1.1.0"
+title: Bounding Box
+
+description: |
+  Represents the bounding box for a model
+
+type: object
+properties:
+  slice:
+    type: array
+    items:
+      type: number
+    description: |
+      The input slice for the bounding_box
+
+  intervals:
+    type: array
+    items:
+      $ref: "bounding_interval-1.0.0"
+    description: |
+      The intervals for each input.
+
+  order:
+    type: string
+    description: |
+      The ordering describing the interval representation
+
+required: [intervals, order]
+additionalProperties: False
+...
